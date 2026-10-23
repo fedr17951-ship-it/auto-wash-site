@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoWash Premium - Автомойка в Новокузнецке</title>
+
+    <!-- Подключаем шрифты и иконки -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Стили (встроены прямо сюда, чтобы не было ошибок с файлом styles.css) -->
+    <style>
+        :root {
+            --primary: #ff8906;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --gray: #a0a0a0;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--white); 
+            background-color: var(--dark); 
+            line-height: 1.6; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        .header { 
+            background-color: var(--darker); 
+            padding: 20px 0; 
+            position: sticky; top: 0; z-index: 1000; 
+            border-bottom: 1px solid #222; 
+        }
+        .header__inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo__text { font-weight: 700; font-size: 1.5rem; color: var(--white); }
+        .accent { color: var(--primary); }
+        
+        .nav__list { display: flex; list-style: none; gap: 30px; }
+        .nav__link { color: var(--gray); text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .nav__link:hover, .nav__link.active { color: var(--white); }
+        
+        .phone-link { color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        
+        .btn { display: inline-block; padding: 10px 24px; text-decoration: none; border-radius: 5px; cursor: pointer; font-weight: 600; text-align: center; }
+        .btn--small { background: var(--primary); color: var(--dark); font-size: 0.9rem; }
+        .btn--primary { background: var(--primary); color: var(--dark); }
+        .btn--outline { background: transparent; border: 2px solid var(--primary); color: var(--white); }
+
+        .burger { display: none; background: none; border: none; cursor: pointer; padding: 5px; }
+        .burger span { display: block; width: 25px; height: 3px; background: var(--white); margin: 4px 0; }
+
+        /* Hero Section */
+        .hero { 
+            position: relative; min-height: 600px; 
+            display: flex; align-items: center; text-align: center; 
+            padding-top: 40px; padding-bottom: 40px; 
+        }
+        .hero__overlay { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%); z-index: 1; 
+        }
+        .hero__content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .hero__title { font-size: 3rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero__subtitle { font-size: 1.2rem; color: var(--gray); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero__actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+        
+        .hero__stats { 
+            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; 
+            border-top: 1px solid #333; padding-top: 30px; margin-top: 30px; 
+        }
+        .stat__number { display: block; font-size: 2rem; font-weight: 800; color: var(--white); }
+        .stat__label { font-size: 0.9rem; color: var(--gray); }
+
+        /* Sections */
+        .section-padding { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-tag { text-transform: uppercase; letter-spacing: 3px; color: var(--primary); font-size: 0.8rem; font-weight: 700; margin-bottom: 15px; }
+        .section-title { font-size: 2.5rem; color: var(--white); }
+
+        /* Features Grid */
+        .features__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .feature-card { text-align: center; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 10px; backdrop-filter: blur(5px); }
+        .feature-card__icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .feature-card__title { margin-bottom: 15px; font-size: 1.3rem; }
+        .feature-card__text { color: var(--gray); }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card__image { height: 200px; width: 100%; }
+        .service-card__content { padding: 25px; background: var(--darker); }
+        .service-card__header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; }
+        .price { color: var(--primary); font-weight: 700; font-size: 1.2rem; }
+        .service-card__link { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+
+        /* Booking Form */
+        .booking { background: #1f1f1f; }
+        .booking__form { max-width: 500px; margin: 0 auto; background: var(--darker); padding: 40px; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--gray); font-weight: 500; }
+        .form-group input, .form-group select { width: 100%; padding: 15px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 8px; outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+        button[type="submit"] { width: 100%; padding: 15px; background: var(--primary); color: var(--dark); border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.3s; }
+        button[type="submit"]:hover { background: #e67b00; }
+
+        /* Footer */
+        .footer { background: var(--darker); padding: 60px 0 20px; }
+        .footer__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer__title { color: var(--white); margin-bottom: 20px; font-size: 1.2rem; }
+        .footer__links { list-style: none; }
+        .footer__links li { margin-bottom: 10px; }
+        .footer__links a { color: var(--gray); text-decoration: none; transition: 0.3s; }
+        .footer__links a:hover { color: var(--white); }
+        .footer__contact a { display: block; color: var(--gray); margin-bottom: 10px; transition: 0.3s; }
+        .footer__contact a:hover { color: var(--white); }
+        .footer__bottom { text-align: center; padding-top: 20px; border-top: 1px solid #222; color: var(--gray); font-size: 0.9rem; }
+
+        /* Mobile Menu JS fallback style */
+        .nav.active .nav__list { flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--darker); padding: 20px; gap: 15px; text-align: center; border-bottom: 1px solid #222; }
+
+        @media (max-width: 768px) {
+            .nav__list { display: none; }
+            .burger { display: block; }
+            .hero__title { font-size: 2rem; }
+            .nav.active .nav__list { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">
+                    <span class="logo__text">AutoWash <span class="accent">Premium</span></span>
+                </a>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav__list">
+                        <li><a href="index.html" class="nav__link active">Главная</a></li>
+                        <li><a href="services.html" class="nav__link">Услуги</a></li>
+                        <li><a href="prices.html" class="nav__link">Цены</a></li>
+                        <li><a href="about.html" class="nav__link">О нас</a></li>
+                        <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__contacts">
+                    <a href="tel:+73843211234" class="phone-link">
+                        <i class="fas fa-phone-alt"></i>
+                        +7 (3843) 21-12-34
+                    </a>
+                    <a href="#booking" class="btn btn--small">Записаться</a>
+                </div>
+
+                <button class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__overlay"></div>
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Профессиональная автомойка
+                    <span class="accent">в Новокузнецке</span>
+                </h1>
+                <p class="hero__subtitle">
+                    Комплексный уход за вашим автомобилем с использованием 
+                    премиальной немецкой косметики Koch Chemie
+                </p>
+                <div class="hero__actions">
+                    <a href="#booking" class="btn btn--primary">
+                        Записаться онлайн
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="prices.html" class="btn btn--outline">
+                        Смотреть цены
+                    </a>
+                </div>
+                <div class="hero__stats">
+                    <div>
+                        <span class="stat__number">5+</span>
+                        <span class="stat__label">Лет на рынке</span>
+                    </div>
+                    <div>
+                        <span class="stat__number">15 000+</span>
+                        <span class="stat__label">Вымытых авто</span>
+                    </div>
+                    <div>
+                        <span class="stat__number">98%</span>
+                        <span class="stat__label">Довольных клиентов</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="products section-padding">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Используем профессиональную химию</span>
+            <h2 class="section-title">Только премиальные составы</h2>
+        </div>
+        <div class="features__grid">
+            <div class="feature-card">
+                <div class="feature-card__icon"><i class="fas fa-flask"></i></div>
+                <h3 class="feature-card__title">Koch Chemie</h3>
+                <p class="feature-card__text">Немецкая автохимия премиум-класса для бережной очистки и долговременной защиты</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon"><i class="fas fa-flask"></i></div>
+                <h3 class="feature-card__title">Meguiar’s</h3>
+                <p class="feature-card__text">Американские составы для полировки и ухода за лакокрасочным покрытием</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon"><i class="fas fa-flask"></i></div>
+                <h3 class="feature-card__title">P&S</h3>
+                <p class="feature-card__text">Профессиональные моющие средства для глубокой очистки без повреждения ЛКП</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon"><i class="fas fa-flask"></i></div>
+                <h3 class="feature-card__title">Detail</h3>
+                <p class="feature-card__text">Отечественные составы для чернения резины и ухода за пластиком</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Features Section -->
+    <section class="features section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Почему выбирают нас</span>
+                <h2 class="section-title">Преимущества работы с нами</h2>
+            </div>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon"><i class="fas fa-clock"></i></div>
+                    <h3 class="feature-card__title">Скорость обслуживания</h3>
+                    <p class="feature-card__text">Среднее время мойки — 25 минут. Ценим ваше время</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="feature-card__title">Гарантия качества</h3>
+                    <p class="feature-card__text">100% гарантия на все виды услуг. Если не понравится — перемоем бесплатно</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon"><i class="fas fa-leaf"></i></div>
+                    <h3 class="feature-card__title">Экологичность</h3>

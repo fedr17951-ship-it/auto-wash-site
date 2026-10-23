@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — AutoWash Premium</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">
+                    <span class="logo__text">AutoWash <span class="accent">Premium</span></span>
+                </a>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav__list">
+                        <li><a href="index.html" class="nav__link">Главная</a></li>
+                        <li><a href="services.html" class="nav__link">Услуги</a></li>
+                        <li><a href="prices.html" class="nav__link">Цены</a></li>
+                        <li><a href="about.html" class="nav__link">О нас</a></li>
+                        <li><a href="contacts.html" class="nav__link active">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__contacts">
+                    <a href="tel:+73843211234" class="phone-link">
+                        <i class="fas fa-phone-alt"></i>
+                        +7 (3843) 21-12-34
+                    </a>
+                    <a href="contacts.html" class="btn btn--small">Записаться</a>
+                </div>
+
+                <button class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Контакты</h1>
+            <p class="page-header__breadcrumb"><a href="index.html">Главная</a> / Контакты</p>
+        </div>
+    </section>
+
+    <!-- Contact Info + Form -->
+    <section class="contacts section-padding">
+        <div class="container">
+            <div class="contacts__grid">
+                <div class="contacts__info">
+                    <h2 class="contacts__title">Как нас найти</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Адрес</h3>
+                            <p>г. Новокузнецк, ул. Автомобильная, 5</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Телефон</h3>
+                            <p><a href="tel:+73843211234">+7 (3843) 21-12-34</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@autowash-nk.ru">info@autowash-nk.ru</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Режим работы</h3>
+                            <p>Ежедневно с 8:00 до 22:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contacts__form">
+                    <h2 class="contacts__title">Записаться на мойку</h2>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" required placeholder="Иван">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Выберите услугу</label>
+                            <select id="service">
+                                <option value="express">Экспресс мойка</option>
+                                <option value="complex">Комплексная мойка</option>
+                                <option value="chemical">Химчистка салона</option>
+                                <option value="polish">Полировка кузова</option>
+                                <option value="ceramic">Керамическое покрытие</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Комментарий</label>
+                            <textarea id="message" rows="4" placeholder="Пожелания к услуге"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+                        <p class="form__success" id="form-success">Спасибо! Мы перезвоним вам в течение 15 минут.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map">
+        <iframe 
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3Aplaceholder" 
+            width="100%" 
+            height="400" 
+            frameborder="0" 
+            style="border:0;" 
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <h3 class="footer__title">AutoWash Premium</h3>
+                    <p>Современная автомойка в Новокузнецке. Работаем ежедневно с 8:00 до 22:00.</p>
+                </div>
+                <div>
+                    <h3 class="footer__title">Навигация</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="prices.html">Цены</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги — AutoWash Premium</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">
+                    <span class="logo__text">AutoWash <span class="accent">Premium</span></span>
+                </a>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav__list">
+                        <li><a href="index.html" class="nav__link">Главная</a></li>
+                        <li><a href="services.html" class="nav__link active">Услуги</a></li>
+                        <li><a href="prices.html" class="nav__link">Цены</a></li>
+                        <li><a href="about.html" class="nav__link">О нас</a></li>
+                        <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__contacts">
+                    <a href="tel:+73843211234" class="phone-link">
+                        <i class="fas fa-phone-alt"></i>
+                        +7 (3843) 21-12-34
+                    </a>
+                    <a href="contacts.html" class="btn btn--small">Записаться</a>
+                </div>
+
+                <button class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Наши услуги</h1>
+            <p class="page-header__breadcrumb"><a href="index.html">Главная</a> / Услуги</p>
+        </div>
+    </section>
+
+    <!-- Services Section (полный список услуг) -->
+    <section class="services section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Полный спектр</span>
+                <h2 class="section-title">Все виды мойки и ухода</h2>
+            </div>
+
+            <div class="services-full__grid">
+                <!-- Услуга 1 -->
+                <div class="service-card service-card--full" id="express">
+                    <div class="service-card__icon"><i class="fas fa-car"></i></div>
+                    <h3 class="service-card__title">Экспресс мойка</h3>
+                    <p class="service-card__text">Быстрая бесконтактная мойка кузова, удаление пыли и грязи. Включает очистку колёсных дисков и арок.</p>
+                    <ul class="service-card__features">
+                        <li>Время: 20 минут</li>
+                        <li>Кузов и диски</li>
+                        <li>Сушка</li>
+                    </ul>
+                    <span class="price">от 350 ₽</span>
+                </div>
+
+                <!-- Услуга 2 -->
+                <div class="service-card service-card--full" id="complex">
+                    <div class="service-card__icon"><i class="fas fa-soap"></i></div>
+                    <h3 class="service-card__title">Комплексная мойка</h3>
+                    <p class="service-card__text">Полная мойка кузова, салона, багажника, ковриков и дисков. Обработка пластика и полироль.</p>
+                    <ul class="service-card__features">
+                        <li>Время: 60 минут</li>
+                        <li>Кузов, салон, багажник</li>
+                        <li>Чистка ковриков</li>
+                        <li>Полировка элементов</li>
+                    </ul>
+                    <span class="price">от 1 200 ₽</span>
+                </div>
+
+                <!-- Услуга 3 -->
+                <div class="service-card service-card--full" id="chemical">
+                    <div class="service-card__icon"><i class="fas fa-broom"></i></div>
+                    <h3 class="service-card__title">Химчистка салона</h3>
+                    <p class="service-card__text">Глубокая чистка сидений, потолка, дверных карт, ковров и пластика. Удаление пятен и запахов.</p>
+                    <ul class="service-card__features">
+                        <li>Время: 2–4 часа</li>
+                        <li>Сиденья, потолок</li>
+                        <li>Удаление пятен</li>
+                        <li>Устранение запахов</li>
+                    </ul>
+                    <span class="price">от 2 500 ₽</span>
+                </div>
+
+                <!-- Услуга 4 -->
+                <div class="service-card service-card--full" id="polish">
+                    <div class="service-card__icon"><i class="fas fa-gem"></i></div>
+                    <h3 class="service-card__title">Полировка кузова</h3>
+                    <p class="service-card__text">Восстановление лакокрасочного покрытия, удаление мелких царапин и придание зеркального блеска.</p>
+                    <ul class="service-card__features">
+                        <li>Время: 3–6 часов</li>
+                        <li>Удаление царапин</li>
+                        <li>Защитная полироль</li>
+                        <li>Гидрофобный эффект</li>
+                    </ul>
+                    <span class="price">от 3 000 ₽</span>
+                </div>
+
+                <!-- Услуга 5 -->
+                <div class="service-card service-card--full" id="ceramic">
+                    <div class="service-card__icon"><i class="fas fa-shield-virus"></i></div>
+                    <h3 class="service-card__title">Нанесение керамики</h3>
+                    <p class="service-card__text">Долговременная защита кузова керамическим составом. Отталкивает грязь и воду, защищает от УФ-лучей.</p>
+                    <ul class="service-card__features">
+                        <li>Время: 1 день</li>
+                        <li>Защита на 12 месяцев</li>
